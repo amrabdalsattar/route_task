@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:route_task/data/models/product_response/product_response.dart';
+import 'package:route_task/presentation/view_models/products_view_model.dart';
 
 import '../../../../../utils/app_assets.dart';
 import '../../../../../utils/app_colors.dart';
@@ -9,8 +10,10 @@ import '../../../../shared_components/loading_widget.dart';
 
 class ProductWidget extends StatelessWidget {
   final ProductDM product;
+  final ProductsViewModel viewModel;
 
-  const ProductWidget({super.key, required this.product});
+  const ProductWidget(
+      {super.key, required this.product, required this.viewModel});
 
   @override
   Widget build(BuildContext context) {
@@ -75,19 +78,21 @@ class ProductWidget extends StatelessWidget {
                           Expanded(
                             flex: 6,
                             child: Text(
-                              "EGP ${product.price ?? 0}",
+                              "EGP ${viewModel.priceFormat(product.price ?? 0)}",
                               style: Theme.of(context).textTheme.bodyMedium,
                             ),
                           ),
                           Expanded(
                             flex: 5,
                             child: Text(
-                              "${product.discountPercentage}% OFF",
+                              "${viewModel.getTheOriginalPrice(product.discountPercentage!, product.price!)} EGP",
                               style: Theme.of(context)
                                   .textTheme
                                   .bodySmall!
                                   .copyWith(
-                                      decoration: TextDecoration.lineThrough),
+                                      color: AppColors.litePrimary,
+                                      decoration: TextDecoration.lineThrough,
+                                      decorationColor: AppColors.primary),
                             ),
                           ),
                         ],
@@ -104,7 +109,9 @@ class ProductWidget extends StatelessWidget {
                                 "Review (${product.rating ?? 0})",
                                 style: Theme.of(context).textTheme.bodyMedium,
                               ),
-                              SizedBox(width: 2.w,),
+                              SizedBox(
+                                width: 2.w,
+                              ),
                               Image.asset(AppAssets.star)
                             ],
                           ),

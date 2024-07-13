@@ -34,7 +34,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
       ),
       body: BlocBuilder<ProductsViewModel, BaseState>(
         bloc: viewModel,
-        builder: (context, state){
+        builder: (context, state) {
           switch (state) {
             case BaseLoadingState():
               return const LoadingWidget();
@@ -43,7 +43,10 @@ class _ProductsScreenState extends State<ProductsScreen> {
               return Text(state.errorMessage);
 
             case BaseSuccessState():
-              return ProductsList(products: state.data);
+              return ProductsList(
+                products: state.data,
+                viewModel: viewModel,
+              );
 
             default:
               return const Text("Something went Wrong");

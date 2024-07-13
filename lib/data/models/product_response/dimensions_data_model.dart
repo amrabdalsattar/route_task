@@ -9,9 +9,9 @@ class DimensionsDM {
     height = json['height'];
     depth = json['depth'];
   }
-  double? width;
-  double? height;
-  double? depth;
+  num? width;
+  num? height;
+  num? depth;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};

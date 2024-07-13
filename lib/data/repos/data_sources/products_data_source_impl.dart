@@ -14,7 +14,7 @@ class ProductsDataSourceImpl extends ProductsDataSource {
 
   @override
   Future<Either<Failure, List<ProductDM>>> productsOnlineDataSource() async {
-    final serverResponse = api.get(ApiConstants.productsEndPoint);
+    final serverResponse = await api.get(ApiConstants.productsEndPoint);
 
     ProductResponse productResponse = ProductResponse.fromJson(serverResponse);
 

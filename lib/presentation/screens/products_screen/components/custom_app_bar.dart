@@ -18,7 +18,7 @@ class CustomAppBar extends StatelessWidget {
           const CustomSearchBar()
         ],
       ),
-      toolbarHeight: 100,
+      toolbarHeight: 110.h,
     );
   }
 }

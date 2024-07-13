@@ -12,7 +12,7 @@ class ProductsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 20),
+      margin: EdgeInsets.symmetric(horizontal: 20.w),
       child: GridView.builder(
           itemCount: products.length,
           physics: const BouncingScrollPhysics(),

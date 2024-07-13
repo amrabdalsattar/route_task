@@ -29,7 +29,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(100.h),
+        preferredSize: Size.fromHeight(110.h),
         child: const CustomAppBar(),
       ),
       body: BlocBuilder<ProductsViewModel, BaseState>(

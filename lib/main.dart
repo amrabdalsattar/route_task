@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
+import 'domain/di/di.dart';
+
 void main() {
+  configureDependencies();
   runApp(const MyApp());
 }
 

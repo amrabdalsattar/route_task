@@ -10,7 +10,7 @@ class GetAllProductsUseCase {
 
   const GetAllProductsUseCase(this.repo);
 
-  Either<Failure, List<ProductDM>> execute() {
+  Future<Either<Failure, List<ProductDM>>> execute() {
     return repo.getProducts();
   }
 }

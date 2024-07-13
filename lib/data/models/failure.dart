@@ -1,8 +1,9 @@
-class Failure{
-  String errorMessage;
-  Failure(this.errorMessage);
+class Failure {
+  final String errorMessage;
+
+  const Failure(this.errorMessage);
 }
 
-class NetworkFailure extends Failure{
-  NetworkFailure(super.errorMessagge);
+class NetworkFailure extends Failure {
+  const NetworkFailure(super.errorMessagge);
 }
